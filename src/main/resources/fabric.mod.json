@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "id": "arrow-img",
+  "version": "${version}",
+  "name": "ArrowImg",
+  "description": "",
+  "authors": [],
+  "contact": {
+    "repo": "https://github.com/hyzho/ArrowImg"
+  },
+  "license": "MIT",
+  "icon": "assets/arrow-img/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "com.github.hhhzzzsss.arrowimg.ArrowImgInitializer"
+    ]
+  },
+  "mixins": [
+    "arrow-img.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
