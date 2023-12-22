@@ -1,5 +1,7 @@
 package com.github.hhhzzzsss.arrowimg.command;
 
+import com.github.hhhzzzsss.arrowimg.command.commands.CircleCommand;
+import com.github.hhhzzzsss.arrowimg.command.commands.TargetCommand;
 import com.mojang.brigadier.CommandDispatcher;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
 import net.minecraft.command.CommandRegistryAccess;
@@ -12,12 +14,11 @@ import java.util.function.Supplier;
 import static net.fabricmc.fabric.api.client.command.v2.ClientCommandManager.literal;
 
 public class CommandHandler {
-    private List<ClientCommand> commands = new ArrayList<>();
+    private final List<ClientCommand> commands = new ArrayList<>();
 
     public CommandHandler() {
-//        addCommand(DelkeyCommand::new);
-//        addCommand(KeygenCommand::new);
-//        addCommand(SignCommand::new);
+        addCommand(TargetCommand::new);
+        addCommand(CircleCommand::new);
     }
 
     private void addCommand(Supplier<ClientCommand> commandConstructor) {

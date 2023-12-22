@@ -2,13 +2,16 @@ package com.github.hhhzzzsss.arrowimg;
 
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayerEntity;
-import net.minecraft.entity.Entity;
+import net.minecraft.client.network.ClientPlayerInteractionManager;
 import net.minecraft.item.CrossbowItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.util.hit.BlockHitResult;
+import net.minecraft.util.hit.HitResult;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 
@@ -81,5 +84,25 @@ public class Util {
         projectile.writeNbt(projectileStackNbt);
         nbtList.add(projectileStackNbt);
         crossbowNbt.put("ChargedProjectiles", nbtList);
+
+        ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        ClientPlayerInteractionManager interactionManager = MinecraftClient.getInstance().interactionManager;
+        player.getInventory().setStack(player.getInventory().selectedSlot, crossbow);
+        interactionManager.clickCreativeStack(crossbow, 9 + (27 + player.getInventory().selectedSlot) % 36);
+    }
+
+    public static BlockHitResult raycast() {
+        ClientPlayerEntity player = MinecraftClient.getInstance().player;
+        if (player == null) return null;
+        HitResult hitRes = player.raycast(1000, 0, false);
+        if (hitRes != null && hitRes instanceof BlockHitResult) {
+            return (BlockHitResult) hitRes;
+        } else {
+            return null;
+        }
+    }
+
+    public static boolean isHorizontal(Direction dir) {
+        return dir == Direction.NORTH || dir == Direction.EAST || dir == Direction.SOUTH || dir == Direction.WEST;
     }
 }

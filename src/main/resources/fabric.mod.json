@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "arrow-img",
+  "id": "arrowimg",
   "version": "${version}",
   "name": "ArrowImg",
   "description": "",
@@ -9,7 +9,7 @@
     "repo": "https://github.com/hyzho/ArrowImg"
   },
   "license": "MIT",
-  "icon": "assets/arrow-img/icon.png",
+  "icon": "assets/arrowimg/icon.png",
   "environment": "client",
   "entrypoints": {
     "client": [
@@ -17,7 +17,7 @@
     ]
   },
   "mixins": [
-    "arrow-img.mixins.json"
+    "arrowimg.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=${loader_version}",
