@@ -4,8 +4,8 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 
 public class CircleGenerator extends PointGenerator {
-    public final double radius;
-    public final int count;
+    private final double radius;
+    private final int count;
 
     private int index = 0;
 

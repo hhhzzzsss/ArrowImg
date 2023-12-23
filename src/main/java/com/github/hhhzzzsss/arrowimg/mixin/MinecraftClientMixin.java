@@ -31,7 +31,6 @@ public class MinecraftClientMixin {
             if (ArrowImg.INSTANCE.imgLoaded) {
                 if (ArrowImg.INSTANCE.pointGenerator.hasNext()) {
                     if (Util.aimAt(ArrowImg.INSTANCE.pointGenerator.next())) {
-                        player.networkHandler.sendPacket(new PlayerMoveC2SPacket.Full(player.getX(), player.getY(), player.getZ(), player.getYaw(), player.getPitch(), player.isOnGround()));
                         Util.holdLoadedCrossbow();
                         interactionManager.interactItem(player, Hand.MAIN_HAND);
                     }

@@ -1,6 +1,8 @@
 package com.github.hhhzzzsss.arrowimg.command;
 
 import com.github.hhhzzzsss.arrowimg.command.commands.CircleCommand;
+import com.github.hhhzzzsss.arrowimg.command.commands.JuliaCommand;
+import com.github.hhhzzzsss.arrowimg.command.commands.StopCommand;
 import com.github.hhhzzzsss.arrowimg.command.commands.TargetCommand;
 import com.mojang.brigadier.CommandDispatcher;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
@@ -18,7 +20,9 @@ public class CommandHandler {
 
     public CommandHandler() {
         addCommand(TargetCommand::new);
+        addCommand(StopCommand::new);
         addCommand(CircleCommand::new);
+        addCommand(JuliaCommand::new);
     }
 
     private void addCommand(Supplier<ClientCommand> commandConstructor) {
